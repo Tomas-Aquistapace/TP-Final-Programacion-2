@@ -25,13 +25,43 @@ void Archivo::Salvar(int aciertos, int cantidadPulsaciones, float tiempoTotal) {
 			//_fsalida.write((char*)&_reg._cantidadPulsaciones, sizeof(char));
 			_fsalida.write((char*)&_reg, sizeof(Registro));
 
-			_fsalida.close();
+			try {
+				_fsalida.close();
 
-			ifstream fentrada; 
-			fentrada.open(_archivoNombre);
-			fentrada.read((char*)&_reg, sizeof(Registro));
-			cout<<endl; cout << "aciertos " << _reg._aciertos << " pulsaciones " << _reg._cantidadPulsaciones <<
-				"  porcentaje " << _reg._porcentajeDeAcierto << "  tiempoTotal " << _reg._tiempoTotal;
+				ifstream _fentrada;
+				_fentrada.exceptions(ofstream::failbit | ofstream::badbit);
+				try {
+					_fentrada.open(_archivoNombre);
+					try {
+						_fentrada.read((char*)&_reg, sizeof(Registro));
+						cout << endl; cout << "aciertos " << _reg._aciertos << " pulsaciones " << _reg._cantidadPulsaciones <<
+							"  porcentaje " << _reg._porcentajeDeAcierto << "  tiempoTotal " << _reg._tiempoTotal;
+						try {
+							_fentrada.close();
+						}
+						catch (ofstream::failure& e) {
+							if (_fsalida.fail()) {
+								cout << "error al cerrar el archivo " << _archivoNombre << " " << e.what();
+							}
+						}
+					}
+					catch (ofstream::failure& e) {
+						if (_fsalida.bad()) {
+							cout << "error al leer el archivo " << _archivoNombre << " " << e.what();
+						}
+					}
+				}
+				catch (ofstream::failure& e) {
+					if (_fentrada.fail()) {
+						cout << "no se puede abrir el archivo " << _archivoNombre << " " << e.what();
+					}
+				}
+			}
+			catch (ofstream::failure& e) {
+				if (_fsalida.fail()) {
+					cout << "error al cerrar el archivo " << _archivoNombre << " " << e.what();
+				}
+			}
 		}
 		catch (ofstream::failure& e) {
 			if(_fsalida.bad()) {
