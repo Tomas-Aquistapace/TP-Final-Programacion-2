@@ -12,7 +12,7 @@ Archivo::~Archivo() {
 void Archivo::Salvar(int aciertos, int cantidadPulsaciones) {
 	
 	_reg._aciertos = aciertos;
-	_reg._porcentajeDeAcierto = (aciertos * cantidadPulsaciones)/100;
+	_reg._porcentajeDeAcierto = (aciertos * 100 )/ cantidadPulsaciones;
 	_reg._cantidadPulsaciones = cantidadPulsaciones;
 	_fsalida.exceptions(ofstream::failbit | ofstream::badbit);
 	try {
