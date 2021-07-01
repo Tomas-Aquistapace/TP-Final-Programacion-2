@@ -18,11 +18,25 @@ void Grillo::borrar(){
 	gotoxy(_x,_y);  cout<<"             ";
 	gotoxy(_x,_y+1);cout<<"             ";
 	gotoxy(_x,_y+2);cout<<"             ";
-	gotoxy(_x,_y+3);cout<<"             ";
+	gotoxy(_x,_y+4);cout<<"             ";
 }
 void Grillo::dibujar(){
-	gotoxy(_x,_y);  cout<<" (,')";
-	gotoxy(_x,_y+1);cout<<"/(  )\\";
-	gotoxy(_x,_y+2);cout<<"  <>";
-	gotoxy(_x,_y+3);cout<<"[ "<<_clase<<" ]";
+	Matriz mat = GetMatriz();
+	int cantMatriz = mat.size();
+
+	list<char> fila = mat.front();
+
+	for (int i = 0; i < cantMatriz; i++) {
+		fila.clear();
+		fila = mat.front();
+		mat.pop_front();
+
+		gotoxy(_x, _y + i);
+		while (!fila.empty()) {
+			cout << fila.front();
+			fila.pop_front();
+		}
+	}
+
+	gotoxy(_x, _y + 4); cout << "[ " << _clase << " ]";
 }

@@ -1,4 +1,5 @@
 #include"Animal.h"
+Matriz GetXdefecto();
 
 Animal::Animal(int x, int y, int vidas, int visible, string archivo){
 	_x=x;
@@ -38,14 +39,7 @@ Animal::Animal(int x, int y, int vidas, int visible, string archivo){
 	catch (ifstream::failure& e) {
 		if (fentrada.fail()) {
 			cout << "Error al abrir el achivo - " << archivo << endl;
-
-			for (int i = 0; i < 3; i++){
-				for (int j = 0; j < TAM; j++){
-					fila.push_back(FILAxDEFECTO[j]);
-				}
-				_imagen.push_back(fila);
-				fila.clear();
-			}
+			_imagen = GetXdefecto();
 		}
 	}
 }
@@ -68,8 +62,27 @@ void Animal::setVisible(int visible){
 	if(_vidas>0)
 		_visible=visible;
 	else
-		_visible=-1; // PORQUE -1? NO ENTENDEMOS
+		_visible=-1;
 }
 Matriz Animal::GetMatriz(){
 	return _imagen;
+}
+
+Matriz GetXdefecto() {
+	//"*=*=*";
+	//"=*=*=";
+	//"*=*=*";
+	Matriz mat;
+	list<char> fila;
+
+	fila = { '*', '=', '*', '=', '*' };
+	mat.push_back(fila);
+
+	fila = { '=', '*', '=', '*', '=' };
+	mat.push_back(fila);
+
+	fila = { '*', '=', '*', '=', '*' };
+	mat.push_back(fila);
+
+	return mat;
 }

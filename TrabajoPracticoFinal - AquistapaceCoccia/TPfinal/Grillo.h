@@ -6,7 +6,6 @@
 using namespace std;
 
 class Grillo:public Animal{
-private:
 	int _clase;
 public:
 	Grillo(int x,int y,int vidas,int visible, string archivo, int clase);

@@ -10,15 +10,13 @@ struct Registro{
 	float _porcentajeDeAcierto;
 	int _cantidadPulsaciones;
 };
-class Archivo{
 
+class Archivo{
 private:
 	string _archivoNombre;
 	Registro _reg;
 	ofstream _fsalida;
-
 public:
-	
 	Archivo();
 	~Archivo();
 	void Salvar(int aciertos, int cantidadPulsaciones);

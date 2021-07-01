@@ -22,6 +22,10 @@
 #define NIVEL_B 8
 #define NIVEL_C 10
 
+#define Direccion_Rana "..\\Animales\\Rana.txt"
+#define Direccion_Hormiga "..\\Animales\\Hormiga.txt"
+#define Direccion_Grillo "..\\Animales\\Grillo.txt"
+
 using namespace std;
 class Juego{
 	int _tecla;
