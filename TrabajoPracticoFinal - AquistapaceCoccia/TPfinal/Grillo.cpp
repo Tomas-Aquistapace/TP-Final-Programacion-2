@@ -1,6 +1,6 @@
 #include "Grillo.h"
 
-Grillo::Grillo(int x, int y,int vidas,int visible, int clase):Animal(x,y,vidas,visible){
+Grillo::Grillo(int x, int y,int vidas,int visible, string archivo, int clase):Animal(x,y,vidas,visible,archivo){
 	_clase=clase;
 }
 char Grillo::getTipo(){

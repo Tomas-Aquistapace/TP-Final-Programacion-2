@@ -8,7 +8,7 @@ using namespace std;
 class Hormiga:public Animal{
 	int _clase;
 public:
-	Hormiga(int x,int y,int vidas,int visible, int clase);
+	Hormiga(int x,int y,int vidas,int visible, string archivo, int clase);
 	char getTipo();
 	void Atacar(Animal* per);
 	void dibujar();

@@ -1,7 +1,9 @@
 #include "Rana.h"
 
-Rana::Rana(int x, int y,int vidas,int visible, int salto):Animal(x,y,vidas,visible){
+Rana::Rana(int x, int y,int vidas,int visible, string archivo, int salto):Animal(x,y,vidas,visible,archivo){
 	_salto=salto;
+
+
 }
 char Rana::getTipo(){
 	return 'R';
@@ -28,7 +30,24 @@ void Rana::borrar(){
 	gotoxy(_x,_y+2);cout<<"         ";
 }
 void Rana::dibujar(){
-	gotoxy(_x,_y);  cout<<" o)__";
-	gotoxy(_x,_y+1);cout<<"(_  _`\ ";
-	gotoxy(_x,_y+2);cout<<" z/z\__)";
+	//gotoxy(_x,_y);  cout<<" o)__";
+	//gotoxy(_x,_y+1);cout<<"(_  _`\ ";
+	//gotoxy(_x,_y+2);cout<<" z/z\__)";
+
+	Matriz mat = GetMatriz();
+	int cantMatriz = mat.size();
+
+	list<char> vec = mat.front();
+
+	for (int i = 0; i < cantMatriz; i++) {
+		vec.clear();
+		vec = mat.front();
+		mat.pop_front();
+		
+		gotoxy(_x, _y + (i+1));
+		while (!vec.empty()) {
+			cout << vec.front();
+			vec.pop_front();
+		}
+	}
 }

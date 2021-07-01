@@ -4,7 +4,7 @@ time_t initial_time;
 time_t bicho_time;
 
 Juego::Juego(){
-	 _arch = new Archivo();
+	_arch = new Archivo();
 	for(int i=0;i<TOPE;i++) 
 		vec[i]=NULL;
 	_depredador= NULL;
@@ -45,7 +45,7 @@ void Juego::init(){
 		cout<<"ingrese dificultad:\n\t\t1:principiante\n\t\t2:intermedio\n\t\t3:avanzado\n\t\t";
 		cin>>_dificultad;
 	}
-	_depredador=new Rana(60, 3, VIDAS_R, 1, 1);
+	_depredador=new Rana(60, 3, VIDAS_R, 1, "..\\Animales\\Rana.txt", 1);
 
 	switch(_dificultad){
 		case 1:
@@ -53,7 +53,7 @@ void Juego::init(){
 			max = NIVEL_A;
 			for(int i= 0; i<max; i++){
 				if(vec[i]==NULL){
-					vec[i]=new Hormiga((top++)*7, 12, VIDAS_H, 0, i);
+					vec[i]=new Hormiga((top++)*7, 12, VIDAS_H, 0, "..\\Animales\\Hormiga.txt", i);
 					_vivos++;
 				}
 			}
@@ -68,18 +68,18 @@ void Juego::init(){
 					int ran=rand()%(2);
 					if(ran==0){
 						if(h>0){
-							vec[i]=new Hormiga((top++)*7, 12, VIDAS_H, 0, i);
+							vec[i]=new Hormiga((top++)*7, 12, VIDAS_H, 0, "..\\Animales\\Hormiga.txt", i);
 							h--;
 						}else{
-							vec[i]=new Grillo((top++)*7, 12, VIDAS_G, 0, i);
+							vec[i]=new Grillo((top++)*7, 12, VIDAS_G, 0, "..\\Animales\\Grillo.txt", i);
 							g--;
 						}
 					}else if(ran==1){
 						if(g>0){
-							vec[i]=new Grillo((top++)*7, 12, VIDAS_G, 0, i);
+							vec[i]=new Grillo((top++)*7, 12, VIDAS_G, 0, "..\\Animales\\grillo.txt", i);
 							g--;
 						}else{
-							vec[i]=new Hormiga((top++)*7, 12, VIDAS_H, 0, i);
+							vec[i]=new Hormiga((top++)*7, 12, VIDAS_H, 0, "..\\Animales\\Hormiga.txt", i);
 							h--;
 						}
 					}
@@ -97,18 +97,18 @@ void Juego::init(){
 					int ran=rand()%(2);
 					if(ran==0){
 						if(h>0){
-							vec[i]=new Hormiga((top++)*7, 12, VIDAS_H, 0, i);
+							vec[i]=new Hormiga((top++)*7, 12, VIDAS_H, 0, "..\\Animales\\Hormiga.txt", i);
 							h--;
 						}else{
-							vec[i]=new Grillo((top++)*7, 12, VIDAS_G, 0, i);
+							vec[i]=new Grillo((top++)*7, 12, VIDAS_G, 0, "..\\Animales\\Grillo.txt", i);
 							g--;
 						}
 					}else if(ran==1){
 						if(g>0){
-							vec[i]=new Grillo((top++)*7, 12, VIDAS_G, 0, i);
+							vec[i]=new Grillo((top++)*7, 12, VIDAS_G, 0, "..\\Animales\\Grillo.txt", i);
 							g--;
 						}else{
-							vec[i]=new Hormiga((top++)*7, 12, VIDAS_H, 0, i);
+							vec[i]=new Hormiga((top++)*7, 12, VIDAS_H, 0, "..\\Animales\\Hormiga.txt", i);
 							h--;
 						}
 					}

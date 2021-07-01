@@ -8,7 +8,7 @@ using namespace std;
 class Rana:public Animal{
 	int _salto;
 public:
-	Rana(int x,int y,int vidas,int visible, int salto);
+	Rana(int x,int y,int vidas,int visible, string archivo, int salto);
 	char getTipo();
 	void Atacar(Animal* per);
 	void setSalto(int salto);

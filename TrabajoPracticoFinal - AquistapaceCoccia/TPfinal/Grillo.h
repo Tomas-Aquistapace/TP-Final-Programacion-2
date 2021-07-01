@@ -9,7 +9,7 @@ class Grillo:public Animal{
 private:
 	int _clase;
 public:
-	Grillo(int x,int y,int vidas,int visible, int clase);
+	Grillo(int x,int y,int vidas,int visible, string archivo, int clase);
 	char getTipo();
 	void Atacar(Animal* per);
 	void dibujar();
