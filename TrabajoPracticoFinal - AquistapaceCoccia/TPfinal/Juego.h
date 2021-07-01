@@ -38,6 +38,9 @@ class Juego{
 	int _dificultad;	// nivel del juego
 
 	float _tiempoPerdido;
+
+	int _vecesPulsadas;
+	int _aciertos;
 public:
 	Juego();
 	~Juego();

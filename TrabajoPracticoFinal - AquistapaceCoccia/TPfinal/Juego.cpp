@@ -35,6 +35,10 @@ void Juego::init(){
 	_dificultad=0;
 
 	_tiempoPerdido = 0;
+
+	_vecesPulsadas = 0;
+	_aciertos = 0;
+
 	int top=1;
 	int max = 0;
 	int h = 0;
@@ -156,6 +160,7 @@ int hor=rand()%(TOPE);
 
 	if(vec[_presa]!=NULL){
 		if(vec[_presa]->estaVivo()==true && vec[_presa]->getVisible()==1){
+			_aciertos++;
 			if(_presa==_ultimo){
 				_depredador->Atacar(vec[_presa]);
 				vec[_presa]->borrar();
@@ -193,7 +198,7 @@ void Juego::result(){
 		gotoxy(30,25);
 		cout<<"game over  ";
 		
-		_arch->Salvar(0,1,2);
+		_arch->Salvar(_aciertos, _vecesPulsadas);
 
 		cin.get();
 	}
@@ -201,8 +206,11 @@ void Juego::result(){
 
 void Juego::input(){
 	if(_tecla=getKey(false)){
-		if(_tecla>47&&_tecla<58)
+		if (_tecla > 47 && _tecla < 58)
+		{
 			_presa=_tecla-48;
+			_vecesPulsadas++;
+		}
 		if(_tecla==KEY_ESC)
 			_gameOver=true;
 	}else

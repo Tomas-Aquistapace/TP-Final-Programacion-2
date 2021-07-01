@@ -2,21 +2,21 @@
 
 Archivo::Archivo() {
 	_archivoNombre = "Resultado.txt";
-	_reg._puntajeFinal = 0;
-	_reg._porcentajeDeAcierto = 0;
+	_reg._aciertos = 0;
+	_reg._porcentajeDeAcierto = 9999;
 	_reg._cantidadPulsaciones = 0;
 }
 Archivo::~Archivo() {
 
 }
-void Archivo::Salvar(int puntajeFinal, float porcentajeDeAcierto, int cantidadPulsaciones) {
-	_reg._puntajeFinal = 12;
-	_reg._porcentajeDeAcierto = 50;
-	_reg._cantidadPulsaciones = 100;
+void Archivo::Salvar(int aciertos, int cantidadPulsaciones) {
+	
+	_reg._aciertos = aciertos;
+	_reg._porcentajeDeAcierto = (aciertos * cantidadPulsaciones)/100;
+	_reg._cantidadPulsaciones = cantidadPulsaciones;
+	_fsalida.exceptions(ofstream::failbit | ofstream::badbit);
 	try {
-		_fsalida.exceptions(ofstream::failbit | ofstream::badbit);
 		_fsalida.open(_archivoNombre);
-
 		try {
 			//_fsalida.write((char*)&_reg._puntajeFinal, sizeof(char));
 			//_fsalida.write((char*)&_reg._porcentajeDeAcierto, sizeof(char));
@@ -24,6 +24,11 @@ void Archivo::Salvar(int puntajeFinal, float porcentajeDeAcierto, int cantidadPu
 			_fsalida.write((char*)&_reg, sizeof(Registro));
 
 			_fsalida.close();
+
+			ifstream fentrada; 
+			fentrada.open(_archivoNombre);
+			fentrada.read((char*)&_reg, sizeof(Registro));
+			cout<<endl; cout << "aciertos " << _reg._aciertos << " pulsaciones " << _reg._cantidadPulsaciones << "  porcentaje " << _reg._porcentajeDeAcierto;
 		}
 		catch (ofstream::failure& e) {
 			if(_fsalida.bad()) {

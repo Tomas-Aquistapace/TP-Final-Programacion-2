@@ -6,7 +6,7 @@
 
 using namespace std;
 struct Registro{
-	int _puntajeFinal;
+	int _aciertos;
 	float _porcentajeDeAcierto;
 	int _cantidadPulsaciones;
 };
@@ -21,7 +21,7 @@ public:
 	
 	Archivo();
 	~Archivo();
-	void Salvar(int puntajeFinal, float porcentajeDeAcierto, int cantidadPulsaciones);
+	void Salvar(int aciertos, int cantidadPulsaciones);
 };
 #endif 
 
