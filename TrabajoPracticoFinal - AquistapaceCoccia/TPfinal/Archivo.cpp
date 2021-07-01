@@ -1,7 +1,7 @@
 #include "Archivo.h"
 
 Archivo::Archivo() {
-	_archivoNombre = "Resultado.txt";
+	_archivoNombre = "Resultado.log";
 	_reg._aciertos = 0;
 	_reg._porcentajeDeAcierto = 9999;
 	_reg._cantidadPulsaciones = 0;
@@ -24,7 +24,10 @@ void Archivo::Salvar(int aciertos, int cantidadPulsaciones, float tiempoTotal) {
 			//_fsalida.write((char*)&_reg._porcentajeDeAcierto, sizeof(char));
 			//_fsalida.write((char*)&_reg._cantidadPulsaciones, sizeof(char));
 			_fsalida.write((char*)&_reg, sizeof(Registro));
-
+			_fsalida << _reg._aciertos << endl;
+			_fsalida << _reg._porcentajeDeAcierto << endl;
+			_fsalida << _reg._cantidadPulsaciones << endl;
+			_fsalida << _reg._tiempoTotal << endl;
 			try {
 				_fsalida.close();
 
@@ -35,7 +38,7 @@ void Archivo::Salvar(int aciertos, int cantidadPulsaciones, float tiempoTotal) {
 					try {
 						_fentrada.read((char*)&_reg, sizeof(Registro));
 						cout << endl; cout << "aciertos " << _reg._aciertos << " pulsaciones " << _reg._cantidadPulsaciones <<
-							"  porcentaje " << _reg._porcentajeDeAcierto << "  tiempoTotal " << _reg._tiempoTotal;
+							"  porcentaje " << _reg._porcentajeDeAcierto << " tiempoTotal " << _reg._tiempoTotal;
 						try {
 							_fentrada.close();
 						}
