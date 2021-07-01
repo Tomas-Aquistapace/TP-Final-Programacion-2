@@ -38,6 +38,7 @@ void Juego::init(){
 
 	_vecesPulsadas = 0;
 	_aciertos = 0;
+	_tiempoTotal = 0;
 
 	int top=1;
 	int max = 0;
@@ -146,6 +147,7 @@ int hor=rand()%(TOPE);
     time_t deltaTime;
     deltaTime = time(NULL) - lastTime;
     _tiempo -= deltaTime;
+	_tiempoTotal += deltaTime;
     bicho_time += deltaTime;
 	lastTime += deltaTime;
 
@@ -198,7 +200,7 @@ void Juego::result(){
 		gotoxy(30,25);
 		cout<<"game over  ";
 		
-		_arch->Salvar(_aciertos, _vecesPulsadas);
+		_arch->Salvar(_aciertos, _vecesPulsadas, _tiempoTotal);
 
 		cin.get();
 	}

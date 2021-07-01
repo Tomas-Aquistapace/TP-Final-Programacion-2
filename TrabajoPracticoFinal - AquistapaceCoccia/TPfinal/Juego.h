@@ -45,6 +45,7 @@ class Juego{
 
 	int _vecesPulsadas;
 	int _aciertos;
+	float _tiempoTotal;
 public:
 	Juego();
 	~Juego();

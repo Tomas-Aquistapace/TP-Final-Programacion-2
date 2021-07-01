@@ -9,6 +9,7 @@ struct Registro{
 	int _aciertos;
 	float _porcentajeDeAcierto;
 	int _cantidadPulsaciones;
+	float _tiempoTotal;
 };
 
 class Archivo{
@@ -19,7 +20,7 @@ private:
 public:
 	Archivo();
 	~Archivo();
-	void Salvar(int aciertos, int cantidadPulsaciones);
+	void Salvar(int aciertos, int cantidadPulsaciones, float tiempoTotal);
 };
 #endif 
 

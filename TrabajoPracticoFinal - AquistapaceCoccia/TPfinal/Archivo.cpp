@@ -5,15 +5,17 @@ Archivo::Archivo() {
 	_reg._aciertos = 0;
 	_reg._porcentajeDeAcierto = 9999;
 	_reg._cantidadPulsaciones = 0;
+	_reg._tiempoTotal = 0;
 }
 Archivo::~Archivo() {
 
 }
-void Archivo::Salvar(int aciertos, int cantidadPulsaciones) {
+void Archivo::Salvar(int aciertos, int cantidadPulsaciones, float tiempoTotal) {
 	
 	_reg._aciertos = aciertos;
 	_reg._porcentajeDeAcierto = (aciertos * 100 )/ cantidadPulsaciones;
 	_reg._cantidadPulsaciones = cantidadPulsaciones;
+	_reg._tiempoTotal = tiempoTotal;
 	_fsalida.exceptions(ofstream::failbit | ofstream::badbit);
 	try {
 		_fsalida.open(_archivoNombre);
@@ -28,7 +30,8 @@ void Archivo::Salvar(int aciertos, int cantidadPulsaciones) {
 			ifstream fentrada; 
 			fentrada.open(_archivoNombre);
 			fentrada.read((char*)&_reg, sizeof(Registro));
-			cout<<endl; cout << "aciertos " << _reg._aciertos << " pulsaciones " << _reg._cantidadPulsaciones << "  porcentaje " << _reg._porcentajeDeAcierto;
+			cout<<endl; cout << "aciertos " << _reg._aciertos << " pulsaciones " << _reg._cantidadPulsaciones <<
+				"  porcentaje " << _reg._porcentajeDeAcierto << "  tiempoTotal " << _reg._tiempoTotal;
 		}
 		catch (ofstream::failure& e) {
 			if(_fsalida.bad()) {
