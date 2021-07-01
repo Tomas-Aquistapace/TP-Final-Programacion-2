@@ -139,21 +139,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="E:\Cosas Varias\Facultad\1.2° Programacion l - Recursada\TP%27S\P1-TPFinal2-AquistapaceTomas-CocciaLautaroTurnoTarde\P1-TPFinal2-AquistapaceTomas-CocciaLautaro-TurnoTarde\TPFinal\Animal.cpp" />
-    <ClCompile Include="E:\Cosas Varias\Facultad\1.2° Programacion l - Recursada\TP%27S\P1-TPFinal2-AquistapaceTomas-CocciaLautaroTurnoTarde\P1-TPFinal2-AquistapaceTomas-CocciaLautaro-TurnoTarde\TPFinal\Grillo.cpp" />
-    <ClCompile Include="E:\Cosas Varias\Facultad\1.2° Programacion l - Recursada\TP%27S\P1-TPFinal2-AquistapaceTomas-CocciaLautaroTurnoTarde\P1-TPFinal2-AquistapaceTomas-CocciaLautaro-TurnoTarde\TPFinal\Hormiga.cpp" />
-    <ClCompile Include="E:\Cosas Varias\Facultad\1.2° Programacion l - Recursada\TP%27S\P1-TPFinal2-AquistapaceTomas-CocciaLautaroTurnoTarde\P1-TPFinal2-AquistapaceTomas-CocciaLautaro-TurnoTarde\TPFinal\Juego.cpp" />
-    <ClCompile Include="E:\Cosas Varias\Facultad\1.2° Programacion l - Recursada\TP%27S\P1-TPFinal2-AquistapaceTomas-CocciaLautaroTurnoTarde\P1-TPFinal2-AquistapaceTomas-CocciaLautaro-TurnoTarde\TPFinal\Libreria.cpp" />
-    <ClCompile Include="E:\Cosas Varias\Facultad\1.2° Programacion l - Recursada\TP%27S\P1-TPFinal2-AquistapaceTomas-CocciaLautaroTurnoTarde\P1-TPFinal2-AquistapaceTomas-CocciaLautaro-TurnoTarde\TPFinal\Rana.cpp" />
-    <ClCompile Include="E:\Cosas Varias\Facultad\1.2° Programacion l - Recursada\TP%27S\P1-TPFinal2-AquistapaceTomas-CocciaLautaroTurnoTarde\P1-TPFinal2-AquistapaceTomas-CocciaLautaro-TurnoTarde\TPFinal\TPFinal.cpp" />
+    <ClCompile Include="Animal.cpp" />
+    <ClCompile Include="Archivo.cpp" />
+    <ClCompile Include="Grillo.cpp" />
+    <ClCompile Include="Hormiga.cpp" />
+    <ClCompile Include="Juego.cpp" />
+    <ClCompile Include="Libreria.cpp" />
+    <ClCompile Include="Rana.cpp" />
+    <ClCompile Include="TPFinal.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="E:\Cosas Varias\Facultad\1.2° Programacion l - Recursada\TP%27S\P1-TPFinal2-AquistapaceTomas-CocciaLautaroTurnoTarde\P1-TPFinal2-AquistapaceTomas-CocciaLautaro-TurnoTarde\TPFinal\Animal.h" />
-    <ClInclude Include="E:\Cosas Varias\Facultad\1.2° Programacion l - Recursada\TP%27S\P1-TPFinal2-AquistapaceTomas-CocciaLautaroTurnoTarde\P1-TPFinal2-AquistapaceTomas-CocciaLautaro-TurnoTarde\TPFinal\Grillo.h" />
-    <ClInclude Include="E:\Cosas Varias\Facultad\1.2° Programacion l - Recursada\TP%27S\P1-TPFinal2-AquistapaceTomas-CocciaLautaroTurnoTarde\P1-TPFinal2-AquistapaceTomas-CocciaLautaro-TurnoTarde\TPFinal\Hormiga.h" />
-    <ClInclude Include="E:\Cosas Varias\Facultad\1.2° Programacion l - Recursada\TP%27S\P1-TPFinal2-AquistapaceTomas-CocciaLautaroTurnoTarde\P1-TPFinal2-AquistapaceTomas-CocciaLautaro-TurnoTarde\TPFinal\Juego.h" />
-    <ClInclude Include="E:\Cosas Varias\Facultad\1.2° Programacion l - Recursada\TP%27S\P1-TPFinal2-AquistapaceTomas-CocciaLautaroTurnoTarde\P1-TPFinal2-AquistapaceTomas-CocciaLautaro-TurnoTarde\TPFinal\Libreria.h" />
-    <ClInclude Include="E:\Cosas Varias\Facultad\1.2° Programacion l - Recursada\TP%27S\P1-TPFinal2-AquistapaceTomas-CocciaLautaroTurnoTarde\P1-TPFinal2-AquistapaceTomas-CocciaLautaro-TurnoTarde\TPFinal\Rana.h" />
+    <ClInclude Include="Animal.h" />
+    <ClInclude Include="Archivo.h" />
+    <ClInclude Include="Grillo.h" />
+    <ClInclude Include="Hormiga.h" />
+    <ClInclude Include="Juego.h" />
+    <ClInclude Include="Libreria.h" />
+    <ClInclude Include="Rana.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

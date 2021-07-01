@@ -15,45 +15,51 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="E:\Cosas Varias\Facultad\1.2° Programacion l - Recursada\TP%27S\P1-TPFinal2-AquistapaceTomas-CocciaLautaroTurnoTarde\P1-TPFinal2-AquistapaceTomas-CocciaLautaro-TurnoTarde\TPFinal\Animal.cpp">
+    <ClCompile Include="Animal.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="E:\Cosas Varias\Facultad\1.2° Programacion l - Recursada\TP%27S\P1-TPFinal2-AquistapaceTomas-CocciaLautaroTurnoTarde\P1-TPFinal2-AquistapaceTomas-CocciaLautaro-TurnoTarde\TPFinal\Grillo.cpp">
+    <ClCompile Include="Grillo.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="E:\Cosas Varias\Facultad\1.2° Programacion l - Recursada\TP%27S\P1-TPFinal2-AquistapaceTomas-CocciaLautaroTurnoTarde\P1-TPFinal2-AquistapaceTomas-CocciaLautaro-TurnoTarde\TPFinal\Hormiga.cpp">
+    <ClCompile Include="Hormiga.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="E:\Cosas Varias\Facultad\1.2° Programacion l - Recursada\TP%27S\P1-TPFinal2-AquistapaceTomas-CocciaLautaroTurnoTarde\P1-TPFinal2-AquistapaceTomas-CocciaLautaro-TurnoTarde\TPFinal\Juego.cpp">
+    <ClCompile Include="Juego.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="E:\Cosas Varias\Facultad\1.2° Programacion l - Recursada\TP%27S\P1-TPFinal2-AquistapaceTomas-CocciaLautaroTurnoTarde\P1-TPFinal2-AquistapaceTomas-CocciaLautaro-TurnoTarde\TPFinal\Libreria.cpp">
+    <ClCompile Include="Libreria.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="E:\Cosas Varias\Facultad\1.2° Programacion l - Recursada\TP%27S\P1-TPFinal2-AquistapaceTomas-CocciaLautaroTurnoTarde\P1-TPFinal2-AquistapaceTomas-CocciaLautaro-TurnoTarde\TPFinal\Rana.cpp">
+    <ClCompile Include="Rana.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="E:\Cosas Varias\Facultad\1.2° Programacion l - Recursada\TP%27S\P1-TPFinal2-AquistapaceTomas-CocciaLautaroTurnoTarde\P1-TPFinal2-AquistapaceTomas-CocciaLautaro-TurnoTarde\TPFinal\TPFinal.cpp">
+    <ClCompile Include="TPFinal.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="Archivo.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="E:\Cosas Varias\Facultad\1.2° Programacion l - Recursada\TP%27S\P1-TPFinal2-AquistapaceTomas-CocciaLautaroTurnoTarde\P1-TPFinal2-AquistapaceTomas-CocciaLautaro-TurnoTarde\TPFinal\Animal.h">
+    <ClInclude Include="Animal.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="E:\Cosas Varias\Facultad\1.2° Programacion l - Recursada\TP%27S\P1-TPFinal2-AquistapaceTomas-CocciaLautaroTurnoTarde\P1-TPFinal2-AquistapaceTomas-CocciaLautaro-TurnoTarde\TPFinal\Grillo.h">
+    <ClInclude Include="Grillo.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="E:\Cosas Varias\Facultad\1.2° Programacion l - Recursada\TP%27S\P1-TPFinal2-AquistapaceTomas-CocciaLautaroTurnoTarde\P1-TPFinal2-AquistapaceTomas-CocciaLautaro-TurnoTarde\TPFinal\Hormiga.h">
+    <ClInclude Include="Hormiga.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="E:\Cosas Varias\Facultad\1.2° Programacion l - Recursada\TP%27S\P1-TPFinal2-AquistapaceTomas-CocciaLautaroTurnoTarde\P1-TPFinal2-AquistapaceTomas-CocciaLautaro-TurnoTarde\TPFinal\Juego.h">
+    <ClInclude Include="Juego.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="E:\Cosas Varias\Facultad\1.2° Programacion l - Recursada\TP%27S\P1-TPFinal2-AquistapaceTomas-CocciaLautaroTurnoTarde\P1-TPFinal2-AquistapaceTomas-CocciaLautaro-TurnoTarde\TPFinal\Libreria.h">
+    <ClInclude Include="Libreria.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="E:\Cosas Varias\Facultad\1.2° Programacion l - Recursada\TP%27S\P1-TPFinal2-AquistapaceTomas-CocciaLautaroTurnoTarde\P1-TPFinal2-AquistapaceTomas-CocciaLautaro-TurnoTarde\TPFinal\Rana.h">
+    <ClInclude Include="Rana.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Archivo.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

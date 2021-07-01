@@ -9,6 +9,7 @@
 #include "Rana.h"
 #include "Grillo.h"
 #include "libreria.h"
+#include "Archivo.h"
 
 #define MIN_FIL 1
 #define MIN_COL 1
@@ -25,6 +26,7 @@ using namespace std;
 class Juego{
 	int _tecla;
 	bool _gameOver;
+	Archivo* _arch;
 	Animal* vec[TOPE];	// reprersenta a las hormigas y/o grillos
 	Animal* _depredador;// representa a la rana
 	int _vivos;			// cuantas presas vivas hay

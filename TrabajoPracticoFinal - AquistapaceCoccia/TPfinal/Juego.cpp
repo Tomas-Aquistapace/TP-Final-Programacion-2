@@ -4,6 +4,7 @@ time_t initial_time;
 time_t bicho_time;
 
 Juego::Juego(){
+	 _arch = new Archivo();
 	for(int i=0;i<TOPE;i++) 
 		vec[i]=NULL;
 	_depredador= NULL;
@@ -17,6 +18,8 @@ Juego::~Juego(){
 	}
 	if(_depredador!=NULL)
 		delete _depredador;
+	if (_arch != NULL)
+		delete _arch;
 }
 
 void Juego::init(){
@@ -189,6 +192,9 @@ void Juego::result(){
 			cout<<"Ganaste !";
 		gotoxy(30,25);
 		cout<<"game over  ";
+		
+		_arch->Salvar(0,1,2);
+
 		cin.get();
 	}
 }
