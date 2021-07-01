@@ -12,7 +12,7 @@ int danio=0;
 		if(per->getTipo()=='H')	danio=1;
 		if(per->getTipo()=='G')	danio=2;
 		danio=per->getVidas()-danio;
-		if(danio<0)danio=0;
+		if (danio <= 0)	danio = 0;
 		per->setVidas(danio);
 	}
 }

@@ -4,6 +4,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <list>
 #include "Animal.h"
 #include "Hormiga.h"
 #include "Rana.h"
@@ -31,15 +32,15 @@ class Juego{
 	int _tecla;
 	bool _gameOver;
 	Archivo* _arch;
-	Animal* vec[TOPE];	// reprersenta a las hormigas y/o grillos
-	Animal* _depredador;// representa a la rana
-	int _vivos;			// cuantas presas vivas hay
-	int _presa;			// numero de presa a ser atacada
-	int _intentos;		// intentos de atacar
-	float _tiempo;		// tiempo  LO CAMBIE A FLOAT
-	int _ultimo;		// ultima presa atacada
-	int _visibles;		// cuantas presas estan visibles
-	int _dificultad;	// nivel del juego
+	list<Animal*> _lista;	// reprersenta a las hormigas y/o grillos
+	Animal* _depredador;	// representa a la rana
+	int _vivos;				// cuantas presas vivas hay
+	int _presa;				// numero de presa a ser atacada
+	int _intentos;			// intentos de atacar
+	float _tiempo;			// tiempo  LO CAMBIE A FLOAT
+	int _ultimo;			// ultima presa atacada
+	int _visibles;			// cuantas presas estan visibles
+	int _dificultad;		// nivel del juego
 
 	float _tiempoPerdido;
 

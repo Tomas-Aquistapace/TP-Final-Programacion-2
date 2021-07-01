@@ -15,10 +15,10 @@ int danio=0;
 	}
 }
 void Grillo::borrar(){
-	gotoxy(_x,_y);  cout<<"             ";
-	gotoxy(_x,_y+1);cout<<"             ";
-	gotoxy(_x,_y+2);cout<<"             ";
-	gotoxy(_x,_y+4);cout<<"             ";
+	gotoxy(_x,_y);  cout<<"           ";
+	gotoxy(_x,_y+1);cout<<"           ";
+	gotoxy(_x,_y+2);cout<<"           ";
+	gotoxy(_x,_y+4);cout<<"           ";
 }
 void Grillo::dibujar(){
 	Matriz mat = GetMatriz();

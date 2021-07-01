@@ -4,18 +4,20 @@ time_t initial_time;
 time_t bicho_time;
 
 Juego::Juego(){
-	_arch = new Archivo();
-	for(int i=0;i<TOPE;i++) 
-		vec[i]=NULL;
+	_arch = new Archivo(); 
+	_lista.clear();
 	_depredador= NULL;
 }
 
 Juego::~Juego(){
-	for(int i = 0; i<TOPE; i++){
-		if(vec[i]!=NULL){
-			delete vec[i];
+	list<Animal*>::iterator iter;
+	for ( iter = _lista.begin(); iter != _lista.end(); iter++) {
+		if (*iter != NULL) {
+			delete *iter;
 		}
 	}
+	_lista.clear();
+
 	if(_depredador!=NULL)
 		delete _depredador;
 	if (_arch != NULL)
@@ -57,10 +59,8 @@ void Juego::init(){
 			_tiempoPerdido = 1;
 			max = NIVEL_A;
 			for(int i= 0; i<max; i++){
-				if(vec[i]==NULL){
-					vec[i]=new Hormiga((top++)*7, 12, VIDAS_H, 0, Direccion_Hormiga, i);
-					_vivos++;
-				}
+				_lista.push_back(new Hormiga((top++)*7, 12, VIDAS_H, 0, Direccion_Hormiga, i));
+				_vivos++;
 			}
 			break;
 		case 2:
@@ -69,27 +69,27 @@ void Juego::init(){
 			h = 4;
 			g = 3;
 			for(int i= 0; i<max; i++){
-				if(vec[i]==NULL){
-					int ran=rand()%(2);
-					if(ran==0){
-						if(h>0){
-							vec[i]=new Hormiga((top++)*7, 12, VIDAS_H, 0, Direccion_Hormiga, i);
-							h--;
-						}else{
-							vec[i]=new Grillo((top++)*7, 12, VIDAS_G, 0, Direccion_Grillo, i);
-							g--;
-						}
-					}else if(ran==1){
-						if(g>0){
-							vec[i]=new Grillo((top++)*7, 12, VIDAS_G, 0, Direccion_Grillo, i);
-							g--;
-						}else{
-							vec[i]=new Hormiga((top++)*7, 12, VIDAS_H, 0, Direccion_Hormiga, i);
-							h--;
-						}
+
+				int ran=rand()%(2);
+				if(ran==0){
+					if(h>0){
+						_lista.push_back(new Hormiga((top++)*7, 12, VIDAS_H, 0, Direccion_Hormiga, i));
+						h--;
+					}else{
+						_lista.push_back(new Grillo((top++)*7, 12, VIDAS_G, 0, Direccion_Grillo, i));
+						g--;
 					}
-					_vivos++;
+				}else if(ran==1){
+					if(g>0){
+						_lista.push_back(new Grillo((top++)*7, 12, VIDAS_G, 0, Direccion_Grillo, i));
+						g--;
+					}else{
+						_lista.push_back(new Hormiga((top++)*7, 12, VIDAS_H, 0, Direccion_Hormiga, i));
+						h--;
+					}
 				}
+				_vivos++;
+
 			}
 			break;
 		case 3:
@@ -98,27 +98,27 @@ void Juego::init(){
 			h = 1+rand()%(9-1);
 			g = 10 - h;
 			for(int i= 0; i<max; i++){
-				if(vec[i]==NULL){
+
 					int ran=rand()%(2);
 					if(ran==0){
 						if(h>0){
-							vec[i]=new Hormiga((top++)*7, 12, VIDAS_H, 0, Direccion_Hormiga, i);
+							_lista.push_back(new Hormiga((top++)*7, 12, VIDAS_H, 0, Direccion_Hormiga, i));
 							h--;
 						}else{
-							vec[i]=new Grillo((top++)*7, 12, VIDAS_G, 0, Direccion_Grillo, i);
+							_lista.push_back(new Grillo((top++)*7, 12, VIDAS_G, 0, Direccion_Grillo, i));
 							g--;
 						}
 					}else if(ran==1){
 						if(g>0){
-							vec[i]=new Grillo((top++)*7, 12, VIDAS_G, 0, Direccion_Grillo, i);
+							_lista.push_back(new Grillo((top++)*7, 12, VIDAS_G, 0, Direccion_Grillo, i));
 							g--;
 						}else{
-							vec[i]=new Hormiga((top++)*7, 12, VIDAS_H, 0, Direccion_Hormiga, i);
+							_lista.push_back(new Hormiga((top++)*7, 12, VIDAS_H, 0, Direccion_Hormiga, i));
 							h--;
 						}
 					}
 					_vivos++;
-				}
+
 			}
 			break;
 	}
@@ -141,7 +141,12 @@ void Juego::play(){
 }
 
 void Juego::update(){
-int hor=rand()%(TOPE);
+int hor=rand()%(_lista.size());
+list<Animal*>::iterator iterVisible = _lista.begin();
+	
+	for (int i = 0; i < hor; i++) {
+		iterVisible++;
+	}
 
 	static time_t lastTime = initial_time;
     time_t deltaTime;
@@ -152,41 +157,50 @@ int hor=rand()%(TOPE);
 	lastTime += deltaTime;
 
 	if(bicho_time>=2){
-		if(vec[hor]!=NULL && vec[hor]->getVisible()==0){
-			vec[hor]->setVisible(1);
+		Animal* insecto = *iterVisible;
+		if(insecto != NULL && insecto->getVisible()==0){
+			insecto->setVisible(1);
 			_visibles++;
 			bicho_time = 0;
 			_ultimo=hor;
 		}
 	}
 
-	if(vec[_presa]!=NULL){
-		if(vec[_presa]->estaVivo()==true && vec[_presa]->getVisible()==1){
-			_aciertos++;
-			if(_presa==_ultimo){
-				_depredador->Atacar(vec[_presa]);
-				vec[_presa]->borrar();
-			}			
-			if(vec[_presa]->estaVivo()==false){
-				_vivos--;
-			}
-			vec[_presa]->setVisible(0);
-			_visibles--;
-				if(_intentos>0){
+	if (_presa <= TOPE) {
+
+		list<Animal*>::iterator iterPresa = _lista.begin();
+		for (int i = 0; i < _presa; i++) {
+			iterPresa++;
+		}
+		Animal* presa = *iterPresa;
+
+		if (presa != NULL) {
+			if (presa->estaVivo() == true && presa->getVisible() == 1) {
+				_aciertos++;
+				if (_presa == _ultimo) {
+					_depredador->Atacar(presa);
+					presa->borrar();
+				}
+				if (presa->estaVivo() == false) {
+					_vivos--;
+				}
+				presa->setVisible(0);
+				_visibles--;
+				if (_intentos > 0) {
 					_intentos--;
 				}
-			
+			}
+			else if (presa->getVisible() == false || presa->estaVivo() == false) {
+				_intentos++;
+			}
 		}
-		else if(vec[_presa]->getVisible()==false ||vec[_presa]->estaVivo()==false){
-			_intentos++;
+		if (_intentos == INTENTOS) {
+			_tiempo = (_tiempo - _tiempoPerdido);
+			_intentos = 0;
 		}
-	}
-	if(_intentos==INTENTOS){
-		_tiempo= (_tiempo- _tiempoPerdido);
-		_intentos=0;
-	}
-	if(_tiempo<0){
-		_tiempo = 0;
+		if (_tiempo < 0) {
+			_tiempo = 0;
+		}
 	}
 }
 
@@ -226,15 +240,21 @@ bool Juego::gameOver(){
 	return _gameOver;
 }
 
-void Juego::draw(){
+void Juego::draw() {
+list<Animal*>::iterator iterDibj = _lista.begin();
 	_depredador->dibujar();
-	for(int i=0;i<TOPE;i++){
-		if(vec[i]!=NULL){
-			if(vec[i]->estaVivo() && vec[i]->getVisible()==1){
-				vec[i]->dibujar();
+	for(int i=0;i<_lista.size();i++) {
+		Animal* insecto = *iterDibj;
+
+		if(insecto != NULL) {
+			if(insecto->estaVivo() && insecto->getVisible()==1){
+				insecto->dibujar();
 			}
 		}
+
+		iterDibj++;
 	}
+
 	gotoxy(10,1);cout<<"Tiempo "<<_tiempo<<" ";
 
 	gotoxy(25,1);cout<<"Visibles "<<_visibles;
